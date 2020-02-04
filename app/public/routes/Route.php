@@ -1,6 +1,7 @@
 <?php
-
+session_start();
 require_once __DIR__.'/../../core/functions.php';
+require_once __DIR__.'/../../core/middleware.php';
 require_once __DIR__.'/Router.php';
 
 /**********************************/
@@ -14,19 +15,24 @@ Route::add('/sample/index',function(){
     );
 },'get');
 
-Route::add('/sample/show',function(){
-    return Functions::callController(
-        'SampleController',
-        'show'
-    );
-},'get');
+//Middleware integration
+Middleware::permission('view-dashboard',function(){
 
-Route::add('/sample/create',function(){
-    return Functions::callController(
-        'SampleController',
-        'create'
-    );
-},'get');
+    Route::add('/sample/show',function(){
+        return Functions::callController(
+            'SampleController',
+            'show'
+        );
+    },'get');
+
+    Route::add('/sample/create',function(){
+        return Functions::callController(
+            'SampleController',
+            'create'
+        );
+    },'get');
+
+});
 
 Route::add('/sample/store',function(){
     return Functions::callController(

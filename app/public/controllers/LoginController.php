@@ -28,18 +28,22 @@ Class LoginController {
         $functions = new Functions;
         $loginModel = new LoginModel;
 
-        $count = $functions->dbQueryGet(
-            'SELECT count(*) FROM '.$loginModel->table.' WHERE user_username = ? AND user_password = ?',
+        $functions->validateToken();
+
+        $user_data = $functions->dbQueryGet(
+            'SELECT * FROM '.$loginModel->table.' WHERE user_username = ? AND user_password = ?',
             'ss',
             [$requests['username'],$requests['password']]
         );
 
-        foreach($count as  $count){
-            $user_count =  $count['count(*)'];
+        $user_count = count($user_data);
+
+        foreach($user_data as  $user_data){
+            $user_id =  $user_data['user_id'];
         }
         
         if($user_count > 0){
-            $_SESSION['logged_user'] = 1;
+            $_SESSION['logged_user'] = $user_id;
             Functions::directTo(Functions::transRootConfig('app_config','app_index'));
         }else{
             $error ='<div class="alert alert-danger" role="alert">

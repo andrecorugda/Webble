@@ -24,13 +24,12 @@ Class Functions {
     /**
      * Validate csrfToken on POST request
      */
-    public function validateToken($callback)
+    public function validateToken()
     {
         if (!empty($_POST['token'])) {
-            if (hash_equals($_SESSION['token'], $_POST['token'])) {
-                $callback();
-            } else {
-                echo '<script> alert("Try again!"); </script>';
+            if (!hash_equals($_SESSION['token'], $_POST['token'])) {
+                echo '<script> alert("You are trying Cross-site request forgery! Be carefull!"); </script>';
+                exit;
             }
         }
     }
@@ -39,7 +38,6 @@ Class Functions {
      * Include in __contruct of any app controller
      */
     public function appSecurity(){
-        session_start();
         if(!isset($_SESSION['logged_user'])){
             header('Location: '.Functions::transRootConfig('app_config','app_login_index'));
         }
@@ -49,10 +47,61 @@ Class Functions {
      * Include in __contruct of any login controller
      */
     public function loginSecurity(){
-        session_start();
         if(isset($_SESSION['logged_user'])){
             header('Location: '.Functions::transRootConfig('app_config','app_index'));
         }
+    }
+
+    /**
+     * Executes db connection and Returns one data
+     * @param $query - Query string
+     * @param $datatype - Params datatype Types: s = string, i = integer, d = double,  b = blob
+     * @param $params - Query parameters
+     */
+    public function dbQueryGetOne($query,$datatype = null,$params = null)
+    {
+
+        $db_const = $this->transConfig('database_config');
+        
+        /* Create connection */
+        $conn = new mysqli($db_const['host'], $db_const['user'], $db_const['pass'], $db_const['db']);
+
+        /* Check connection */
+        if ($conn->connect_error) {
+            die("Connection failed: " . $conn->connect_error);
+        }
+
+        /* Bind parameters. Types: s = string, i = integer, d = double,  b = blob */
+        $a_params = array();
+        
+        /* with call_user_func_array, array params must be passed by reference */
+        $a_params[] = & $datatype;
+        
+        $n = strlen($datatype);
+        for($i = 0; $i < $n; $i++) {
+            /* with call_user_func_array, array params must be passed by reference */
+            $a_params[] = & $params[$i];
+        }
+        
+        /* Prepare statement */
+        $stmt = $conn->prepare($query);
+        if($stmt === false) {
+            trigger_error('Wrong SQL: ' . $query . ' Error: ' . $conn->errno . ' ' . $conn->error, E_USER_ERROR);
+        }
+        
+        if($datatype&&$params){
+            /* use call_user_func_array, as $stmt->bind_param('s', $param); does not accept params array */
+            call_user_func_array(array($stmt, 'bind_param'), $a_params);
+        }
+        
+        /* Execute statement */
+        $stmt->execute();
+        
+        /* Return Fetch result to array */
+        $result = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+
+        return reset($result[0]);
+
     }
 
     /**

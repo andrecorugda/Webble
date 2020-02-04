@@ -16,7 +16,7 @@ Class SampleController {
         $functions = new Functions;
         $model = new SampleModel;
         $results = $functions->dbQueryGet('SELECT * FROM '.$model->table);
-        
+
         Functions::callView('index',$results);
     }
 
