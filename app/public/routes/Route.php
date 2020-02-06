@@ -8,12 +8,24 @@ require_once __DIR__.'/Router.php';
 /****** Collection of Routes ******/
 /**********************************/
 
-Route::add('/sample/index',function(){
+Route::add('/',function(){
     return Functions::callController(
-        'SampleController',
+        'DashboardController',
         'index'
     );
 },'get');
+
+/************ Dashboard Start *************/
+
+Route::add('/dashboard',function(){
+    return Functions::callController(
+        'DashboardController',
+        'index'
+    );
+},'get');
+
+/************ Dashboard End *************/
+
 
 //Middleware integration
 Middleware::permission('view-dashboard',function(){
@@ -57,7 +69,7 @@ Route::add('/sample/destroy/([0-9]*)/([a-z]*)',function($id,$text){
 },'get');
 
 
-/************ Login *************/
+/************ Login Start *************/
 
 Route::add('/login',function(){
     return Functions::callController(
@@ -83,6 +95,8 @@ Route::add('/login/destroy',function(){
         'destroy'
     );
 },'get');
+
+/************ Login End *************/
 
 /**********************************/
 /****** Execution of Routes ******/

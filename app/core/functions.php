@@ -330,6 +330,15 @@ Class Functions {
         return $link.''.Functions::transConfig('app_config','app_root').'/app/assets/'.$file;  
     }
 
+    /**
+     * Includes view
+     * @param $file - Route of file
+     */
+    public function includeView($file)
+    {
+        require __DIR__.'/../public/views/'.$file;  
+    }
+
 }
 
 ?>

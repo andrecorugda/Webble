@@ -2,7 +2,7 @@
 <html>
 <head>
     <!-- Include Stying -->
-    <?php require __DIR__.'/../partials/includes.php'; ?>
+    <?php require __DIR__.'/../partials/includes-header.php'; ?>
     <!-- Set Page Title -->
     <title>
         <?php Functions::displayConfig('app_config','app_title'); ?> Sign In
@@ -42,4 +42,6 @@
         </div>
     </div>
 </body>
+
+<?php require __DIR__.'/../partials/includes-footer.php'; ?>
 </html>

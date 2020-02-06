@@ -1,17 +1,19 @@
 <?php
 
-Class LoginModel {
+require_once __DIR__.'/../../core/models.php';
+
+Class LoginModel extends Models{
 
     public function __construct()
     {
         $this->table = 'fw_user';
         $this->fillable = [
-            'user_id',
-            'user_fname',
-            'user_lname',
-            'user_email',
-            'user_username',
-            'user_password'
+            'id'        => 'user_id',
+            'firstname' => 'user_fname',
+            'lastname'  => 'user_lname',
+            'email'     => 'user_email',
+            'username'  => 'user_username',
+            'password'  => 'user_password'
         ];
     }
 
