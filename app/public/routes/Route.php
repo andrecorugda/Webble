@@ -4,104 +4,24 @@ require_once __DIR__.'/../../core/functions.php';
 require_once __DIR__.'/../../core/middleware.php';
 require_once __DIR__.'/Router.php';
 
-/**********************************/
-/****** Collection of Routes ******/
-/**********************************/
+/**
+ * Login Routes
+ */
+require 'collections/route-login.php';
 
-Route::add('/',function(){
-    return Functions::callController(
-        'DashboardController',
-        'index'
-    );
-},'get');
+/**
+ * Web Routes
+ */
+require 'collections/route-web.php';
 
-/************ Dashboard Start *************/
+/**
+ * Middleware Permissions Routes
+ */
+require 'collections/route-middleware-permission.php';
 
-Route::add('/dashboard',function(){
-    return Functions::callController(
-        'DashboardController',
-        'index'
-    );
-},'get');
-
-/************ Dashboard End *************/
-
-
-//Middleware integration
-Middleware::permission('view-dashboard',function(){
-
-    Route::add('/sample/show',function(){
-        return Functions::callController(
-            'SampleController',
-            'show'
-        );
-    },'get');
-
-    Route::add('/sample/create',function(){
-        return Functions::callController(
-            'SampleController',
-            'create'
-        );
-    },'get');
-
-});
-
-Route::add('/sample/store',function(){
-    return Functions::callController(
-        'SampleController',
-        'store',
-        [
-            'user'=>$_POST['user'],
-            'status'=>$_POST['status']
-        ]
-    );
-},'post');
-
-Route::add('/sample/destroy/([0-9]*)/([a-z]*)',function($id,$text){
-    return Functions::callController(
-        'SampleController',
-        'destroy',
-        [
-            'id'=>$id,
-            'text'=>$text,
-        ]
-    );
-},'get');
-
-
-/************ Login Start *************/
-
-Route::add('/login',function(){
-    return Functions::callController(
-        'LoginController',
-        'index'
-    );
-},'get');
-
-Route::add('/login',function(){
-    return Functions::callController(
-        'LoginController',
-        'login',
-        [
-            'username'=>$_POST['user-input'],
-            'password'=>$_POST['pass-input']
-        ]
-    );
-},'post');
-
-Route::add('/login/destroy',function(){
-    return Functions::callController(
-        'LoginController',
-        'destroy'
-    );
-},'get');
-
-/************ Login End *************/
-
-/**********************************/
-/****** Execution of Routes ******/
-/**********************************/
-
+/**
+ * Execution of routes
+ */
 $functions = new Functions;
-$basepath = $functions->transConfig('app_config','app_root');
+$basepath = $functions->transConfig('app_config', 'app_root');
 Route::run($basepath);
