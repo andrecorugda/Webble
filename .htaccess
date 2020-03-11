@@ -13,3 +13,9 @@ RewriteCond %{REQUEST_FILENAME} !-d
  
 # Push every request to index.php
 RewriteRule ^(.*)$ index.php [QSA]
+
+# Disable directory browsing 
+Options -Indexes
+
+# Hide the contents of directories
+IndexIgnore *
