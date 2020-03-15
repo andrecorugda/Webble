@@ -5,7 +5,7 @@
     <?php require __DIR__.'/../partials/includes-header.php'; ?>
     <!-- Set Page Title -->
     <title>
-        <?php Functions::displayConfig('app_config', 'app_title'); ?> Sign In
+        <?php Functions::displayConfig('app_config', 'app_title'); ?> Sign In Host
     </title>
 </head>
 <body class="w-100 h-100 bg-primary">
@@ -17,11 +17,11 @@
                     <div class="card-body">
                         <!-- Card Title -->
                         <h5 class="card-title text-center">
-                            <?php Functions::displayConfig('app_config', 'app_title'); ?> Sign In
+                            <?php Functions::displayConfig('app_config', 'app_title'); ?> Sign In Host
                         </h5>
                         <?php echo $data['error']; ?>
                         <!-- Form -->
-                        <form method="POST" action="<?php Functions::displayRootConfig('app_config', 'app_login_index'); ?>">
+                        <form method="POST" action="<?php Functions::displayRootConfig('app_config', 'app_login_host'); ?>">
                             <?php Functions::csrfToken(); ?>
                             <!-- Email -->
                             <div class="form-label-group mt-3">

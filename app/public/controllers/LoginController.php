@@ -1,7 +1,7 @@
 <?php
 
 require_once __DIR__.'/../../core/functions.php';
-require_once __DIR__.'/../models/LoginModel.php';
+require_once __DIR__.'/../models/UserModel.php';
 
 class LoginController
 {
@@ -16,27 +16,36 @@ class LoginController
     }
 
     /**
-     * index() -> show login view
+     * indexUser() -> show login view for users
      */
-    public function index()
+    public function indexUser()
     {
         $error = null;
-        return Functions::callView('login/login-layout', ['error'=>$error]);
+        return Functions::callView('login/login-user', ['error'=>$error]);
     }
 
     /**
-     * login() -> execute login sequence
+     * indexHost() -> show login view for hosts
      */
-    public function login($requests)
+    public function indexHost()
+    {
+        $error = null;
+        return Functions::callView('login/login-host', ['error'=>$error]);
+    }
+
+    /**
+     * loginUser() -> execute login sequence
+     */
+    public function loginUser($requests)
     {
         //Instantiate Models and core functions
         $functions = new Functions;
-        $loginModel = new LoginModel;
+        $userModel = new UserModel;
 
         //Define Connections,Columns and Tables
-        $user_table = $loginModel->table;
-        $user_username = $loginModel->column('username');
-        $user_password = $loginModel->column('password');
+        $user_table = $userModel->table;
+        $user_username = $userModel->column('username');
+        $user_password = $userModel->column('password');
 
         //CSRF Security -> validate token
         $functions->validateToken();
@@ -68,7 +77,7 @@ class LoginController
                         <strong>Sign In Failed!</strong>
                         username or password is incorrect.
                     </div>';
-            return Functions::callView('login/login-layout', ['error'=>$error]);
+            return Functions::callView('login/login-user', ['error'=>$error]);
         }
     }
 

@@ -1,6 +1,7 @@
 <?php
 
-Class Database {
+class Database
+{
     
     /**
      * @param $stage
@@ -18,11 +19,12 @@ Class Database {
     public function dev()
     {
         return [
-            'host' => 'PPD-Medimix-AWS-Dev-NLB-AURORA-ec244bd0dbfbde7d.elb.us-east-1.amazonaws.com',
-            'user' => 'acorugda',
-            'pass' => '76m_2zT45Aur~ny',
-            'db' => 'dev_fieldwork',
-            'port' => '3306'
+            'host' => '127.0.0.1',
+            'user' => 'root',
+            'pass' => '',
+            'db' => 'hotel_app',
+            'port' => '3305',
+            'socket' => ''
         ];
     }
     
@@ -37,7 +39,8 @@ Class Database {
             'user' => 'acorugda',
             'pass' => 'TMiT76:t~oi!PIj',
             'db' => 'dev_fieldwork',
-            'port' => '3306'
+            'port' => '3306',
+            'socket' => ''
         ];
     }
 
@@ -52,10 +55,8 @@ Class Database {
             'user' => 'acorugda',
             'pass' => '76m_2zT45Aur~ny',
             'db' => 'dev_fieldwork',
-            'port' => '3306'
+            'port' => '3306',
+            'socket' => ''
         ];
     }
-
 }
-
-?>
