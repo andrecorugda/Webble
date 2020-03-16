@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html class="w-100 h-100">
 <head>
     <!-- Include Stying -->
     <?php require __DIR__.'/../partials/includes-header.php'; ?>
@@ -8,15 +8,20 @@
         <?php Functions::displayConfig('app_config', 'app_title'); ?> Sign In Host
     </title>
 </head>
-<body class="w-100 h-100 bg-primary">
+<body class="w-100 h-100"
+      style="background: url('<?php echo Functions::assets('img/nice-host-bg.png') ?>');
+                background-size: cover;
+                background-position: center;">
+    <div class="blur-bg" >
+    </div>
     <div class="container">
         <div class="row">
             <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
                 <!-- Card -->
-                <div class="card bg-secondary card-signin my-5">
+                <div class="card card-signin my-5 text-white" style="background: none; box-shadow: none;">
                     <div class="card-body">
                         <!-- Card Title -->
-                        <h5 class="card-title text-center">
+                        <h5 class="card-title text-center mt-4 mb-4">
                             <?php Functions::displayConfig('app_config', 'app_title'); ?> Sign In Host
                         </h5>
                         <?php echo $data['error']; ?>
@@ -26,15 +31,15 @@
                             <!-- Email -->
                             <div class="form-label-group mt-3">
                                 <label for="user-input">Username</label>
-                                <input type="username" name="user-input" id="user-input" class="form-control" placeholder="Username" required autofocus>
+                                <input type="username" name="user-input" id="user-input" class="form-control text-white" placeholder="Username" required autofocus>
                             </div>
                             <!-- Password -->
                             <div class="form-label-group mt-3">
                                 <label for="pass-input">Password</label>
-                                <input type="password" name="pass-input" id="pass-input" class="form-control" placeholder="Password" required>
+                                <input type="password" name="pass-input" id="pass-input" class="form-control text-white" placeholder="Password" required>
                             </div>
                             <!-- Button -->
-                            <button class="btn btn-lg btn-primary mt-4 btn-block text-uppercase" type="submit">Sign in</button>
+                            <button class="btn btn-lg btn-warning mt-4 mb-4 btn-block text-uppercase" type="submit">Sign in</button>
                         </form>
                     </div>
                 </div>

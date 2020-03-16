@@ -31,12 +31,12 @@
                             <!-- Email -->
                             <div class="form-label-group mt-3">
                                 <label for="user-input">Username</label>
-                                <input type="username" name="user-input" id="user-input" class="form-control" placeholder="Username" required autofocus>
+                                <input type="username" name="user-input" id="user-input" class="form-control text-white" placeholder="Username" required autofocus>
                             </div>
                             <!-- Password -->
                             <div class="form-label-group mt-3">
                                 <label for="pass-input">Password</label>
-                                <input type="password" name="pass-input" id="pass-input" class="form-control" placeholder="Password" required>
+                                <input type="password" name="pass-input" id="pass-input" class="form-control text-white" placeholder="Password" required>
                             </div>
                             <!-- Button -->
                             <button class="btn btn-lg btn-warning mt-4 mb-4 btn-block text-uppercase" type="submit">Sign in</button>
