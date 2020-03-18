@@ -38,8 +38,17 @@
                                 <label for="pass-input">Password</label>
                                 <input type="password" name="pass-input" id="pass-input" class="form-control text-white" placeholder="Password" required>
                             </div>
-                            <!-- Button -->
-                            <button class="btn btn-lg btn-warning mt-4 mb-4 btn-block text-uppercase" type="submit">Sign in</button>
+                            <!-- Sign-in Button -->
+                            <button class="btn btn-lg btn-warning mt-4 btn-block text-uppercase" type="submit">Sign in</button>
+                            <!-- Sign-up Button -->
+                            <button class="btn btn-lg btn-primary mb-2 btn-block text-uppercase" type="submit">Become a host</button>
+                            <p id="emailHelp" class="form-text float-left">
+                                <a href="<?php Functions::displayRootConfig('app_config', 'app_login_user') ?>" class="text-white">&#8592; Go to user sign-in page.</a>
+                            </p>
+                            <p id="emailHelp" class="form-text float-right">
+                                <a href="#" class="text-white">Forgot your password?</a>
+                            </p>
+                            <em class="fas fa-user"></em>
                         </form>
                     </div>
                 </div>
