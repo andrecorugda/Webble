@@ -25,12 +25,30 @@ class LoginController
     }
 
     /**
+     * indexUser() -> show login view for users
+     */
+    public function signUpUser()
+    {
+        $error = null;
+        return Functions::callView('login/signup-user', ['error'=>$error]);
+    }
+
+    /**
      * indexHost() -> show login view for hosts
      */
     public function indexHost()
     {
         $error = null;
         return Functions::callView('login/login-host', ['error'=>$error]);
+    }
+
+    /**
+     * indexHost() -> show login view for hosts
+     */
+    public function signUpHost()
+    {
+        $error = null;
+        return Functions::callView('login/signup-host', ['error'=>$error]);
     }
 
     /**

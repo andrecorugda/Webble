@@ -46,3 +46,20 @@ Route::add('/logout', function () {
         'logout'
     );
 }, 'get');
+
+//Login host get
+Route::add('/sign-up/user', function () {
+    return Functions::callController(
+        'LoginController',
+        'signUpUser'
+    );
+}, 'get');
+
+//Login host get
+Route::add('/sign-up/host', function () {
+    return Functions::callController(
+        'LoginController',
+        'signUpHost'
+    );
+}, 'get');
+
