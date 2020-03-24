@@ -15,7 +15,7 @@ class UserModel extends Models
             'password' => 'password',
             'first_name' => 'first_name',
             'last_name' => 'last_name',
-            'email ' => 'email',
+            'email' => 'email',
             'avatar' => 'avatar',
             'address' => 'address',
             'created_at' => 'created_at'

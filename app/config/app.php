@@ -12,11 +12,11 @@ class App
             'app_404' => '/404',
             'app_405' => '/405',
             'app_index' => '/dashboard',//App index defines default uri directory
-            'app_login_index' => '/login/user',//App login index defines default uri login user directory
+            'app_login_index' => '/login/user',//App login index defines default page
             'app_login_user' => '/login/user',//App login index defines default uri login user directory
             'app_login_host' => '/login/host',//App login index defines default uri login host directory
-            'app_signup_user' => '/sign-up/user',//App login index defines default uri login host directory
-            'app_signup_host' => '/sign-up/host',//App login index defines default uri login host directory
+            'app_signup_user' => '/sign-up/user',//App sign up index defines default uri login user directory
+            'app_signup_host' => '/sign-up/host',//App sign up index defines default uri login host directory
         ];
     }
 }

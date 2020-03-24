@@ -208,7 +208,7 @@ class Functions
         }
         
         /* Execute statement */
-        $stmt->execute();
+        return $stmt->execute();
     }
 
     /**
@@ -338,5 +338,50 @@ class Functions
     public function includeView($file)
     {
         require __DIR__.'/../public/views/'.$file;
+    }
+
+    /**
+     * Includes view
+     * @param $mailto - recepient address
+     * @param $mailto_name - recepient name
+     * @param $subject - subject of mail
+     * @param $body - content of mail
+     * @param $alt_body - alternative content
+     */
+    public function sendEmail($mailto, $mailto_name, $subject = null, $body = null, $alt_body = null){
+
+        // Load Composer's autoloader
+        require __DIR__.'/../lib/vendor/autoload.php';
+
+        // Instantiation and passing `true` enables exceptions
+        $mail = new \PHPMailer\PHPMailer\PHPMailer(true);
+
+        try {
+            //Server settings
+            $mail->SMTPDebug = Functions::transConfig('mail_config','mail_smtp_debug');
+            $mail->IsSMTP();
+            $mail->SMTPAuth = Functions::transConfig('mail_config', 'mail_smtp_auth'); 
+            $mail->SMTPSecure = Functions::transConfig('mail_config', 'mail_smtp_secure'); 
+            $mail->Host = Functions::transConfig('mail_config', 'mail_host');
+            $mail->Port = Functions::transConfig('mail_config', 'mail_port');
+            $mail->Username = Functions::transConfig('mail_config', 'mail_username');
+            $mail->Password = Functions::transConfig('mail_config', 'mail_password');
+
+            $email_from = Functions::transConfig('mail_config', 'mail_name_from');
+            $name_from = Functions::transConfig('mail_config', 'mail_from');
+
+            //Typical mail data
+            $mail->addAddress($mailto, $mailto_name);
+            $mail->setFrom($email_from, $name_from);
+            $mail->isHTML(true);
+            $mail->Subject = $subject;
+            $mail->Body    = $body;
+            $mail->AltBody = $alt_body;
+
+            $mail->send();
+        } catch (\PHPMailer\PHPMailer\Exception $e) {
+            echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+        }
+
     }
 }

@@ -8,7 +8,6 @@ Route::add('/login/user', function () {
     );
 }, 'get');
 
-//Login user post
 Route::add('/login/user', function () {
     return Functions::callController(
         'LoginController',
@@ -20,7 +19,7 @@ Route::add('/login/user', function () {
     );
 }, 'post');
 
-//Login host get
+//login host
 Route::add('/login/host', function () {
     return Functions::callController(
         'LoginController',
@@ -28,7 +27,6 @@ Route::add('/login/host', function () {
     );
 }, 'get');
 
-//Login host post
 Route::add('/login/host', function () {
     return Functions::callController(
         'LoginController',
@@ -40,14 +38,7 @@ Route::add('/login/host', function () {
     );
 }, 'post');
 
-Route::add('/logout', function () {
-    return Functions::callController(
-        'LoginController',
-        'logout'
-    );
-}, 'get');
-
-//Login host get
+//sign up user
 Route::add('/sign-up/user', function () {
     return Functions::callController(
         'LoginController',
@@ -55,11 +46,43 @@ Route::add('/sign-up/user', function () {
     );
 }, 'get');
 
-//Login host get
+Route::add('/sign-up/user', function () {
+    return Functions::callController(
+        'LoginController',
+        'registerUser',
+        [
+            'fname'=>$_POST['fname-input'],
+            'lname'=>$_POST['lname-input'],
+            'email'=>$_POST['email-input'],
+            'address'=>$_POST['address-input'],
+            'username'=>$_POST['username-input'],
+            'password'=>$_POST['password-input'],
+        ]
+    );
+}, 'post');
+
+//sign up host
 Route::add('/sign-up/host', function () {
     return Functions::callController(
         'LoginController',
         'signUpHost'
     );
 }, 'get');
+
+Route::add('/sign-up/host', function () {
+    return Functions::callController(
+        'LoginController',
+        'registerHost'
+    );
+}, 'post');
+
+
+//logout
+Route::add('/logout', function () {
+    return Functions::callController(
+        'LoginController',
+        'logout'
+    );
+}, 'get');
+
 

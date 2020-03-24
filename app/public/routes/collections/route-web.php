@@ -27,3 +27,12 @@ Route::add('/dashboard', function () {
         'index'
     );
 }, 'get');
+
+//Keep this route for testing
+// Route::add('/test', function () {
+//     return Functions::callController(
+//         'LoginController',
+//         'test'
+//     );
+// }, 'get');
+
