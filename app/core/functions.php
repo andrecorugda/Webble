@@ -296,7 +296,7 @@ class Functions
      */
     public function callView($view, $data = null)
     {
-        return require __DIR__.'/../public/views/'.$view.'.php';
+        return require __DIR__.'/../src/views/'.$view.'.php';
     }
 
     /**{
@@ -308,7 +308,7 @@ class Functions
      */
     public function callController($controller, $method = null, $requests = null)
     {
-        require __DIR__.'/../public/controllers/'.$controller.'.php';
+        require __DIR__.'/../src/controllers/'.$controller.'.php';
         $className = new $controller();
 
         if (null != $method && null == $requests) {
@@ -337,7 +337,7 @@ class Functions
      */
     public function includeView($file)
     {
-        require __DIR__.'/../public/views/'.$file;
+        require __DIR__.'/../src/views/'.$file;
     }
 
     /**

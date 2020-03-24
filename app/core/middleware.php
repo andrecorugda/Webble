@@ -1,7 +1,7 @@
 <?php
 
-require_once __DIR__.'/../public/models/PermissionRoleModel.php';
-require_once __DIR__.'/../public/models/UserModel.php';
+require_once __DIR__.'/../src/models/PermissionRoleModel.php';
+require_once __DIR__.'/../src/models/UserModel.php';
 require_once __DIR__.'/functions.php';
 
 Class Middleware {
