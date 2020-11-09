@@ -7,7 +7,7 @@ Class DashboardController {
     public function __construct()
     {
         $functions = new Functions;
-        $functions->appSecurity();
+        //$functions->appSecurity();
     }
 
     public function index()
