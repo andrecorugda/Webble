@@ -1,8 +1,10 @@
 <?php
 session_start();
-require_once __DIR__.'/../../core/functions.php';
-require_once __DIR__.'/../../core/middleware.php';
-require_once __DIR__.'/Router.php';
+require_once __DIR__.'/../../core/Router.php';
+
+/**********************************************/
+/*** Require everytime you add a route file ***/
+/**********************************************/
 
 /**
  * Login Routes
@@ -22,6 +24,5 @@ require 'collections/route-middleware-permission.php';
 /**
  * Execution of routes
  */
-$functions = new Functions;
-$basepath = $functions->transConfig('app_config', 'app_root');
+$basepath = transConfig('app_config', 'app_root');
 Route::run($basepath);

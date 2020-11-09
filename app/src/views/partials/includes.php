@@ -2,7 +2,7 @@
 <?php require_once __DIR__.'../../../../core/functions.php'; ?>
 
 <!-- Call CSS files -->
-<link rel="stylesheet" type="text/css" href="<?php echo Functions::assets('style/bootstrap-material.css'); ?>">
+<link rel="stylesheet" type="text/css" href="<?php echo assets('style/bootstrap-material.css'); ?>">
 
 <!-- Includes Meta-data -->
 <meta charset="UTF-8">

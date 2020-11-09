@@ -3,14 +3,14 @@
 //view-dashboard
 Middleware::permission('view-dashboard', function () {
     Route::add('/sample/show', function () {
-        return Functions::callController(
+        return callController(
             'SampleController',
             'show'
         );
     }, 'get');
 
     Route::add('/sample/create', function () {
-        return Functions::callController(
+        return callController(
             'SampleController',
             'create'
         );
@@ -20,14 +20,14 @@ Middleware::permission('view-dashboard', function () {
 //view-sample
 Middleware::permission('view-sample', function () {
     Route::add('/sample/show', function () {
-        return Functions::callController(
+        return callController(
             'SampleController',
             'show'
         );
     }, 'get');
 
     Route::add('/sample/create', function () {
-        return Functions::callController(
+        return callController(
             'SampleController',
             'create'
         );

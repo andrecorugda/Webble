@@ -5,7 +5,7 @@
     <?php require __DIR__.'/../partials/includes-header.php'; ?>
     <!-- Set Page Title -->
     <title>
-        <?php Functions::displayConfig('app_config', 'app_title'); ?> Sign Up User
+        <?php displayConfig('app_config', 'app_title'); ?> Sign Up User
     </title>
 </head>
 <body class="w-100 h-100 bg-primary">

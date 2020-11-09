@@ -2,15 +2,15 @@
 <html>
 <head>
     <!-- Include Stying -->
-    <?php Functions::includeView('/partials/includes-header.php'); ?>
+    <?php includeView('/partials/includes-header.php'); ?>
     <!-- Set Page Title -->
     <title>
-        <?php Functions::displayConfig('app_config','app_title'); ?> Dashboard
+        <?php displayConfig('app_config','app_title'); ?> Dashboard
     </title>
 </head>
 <body class="w-100 h-100">
     <!-- Navbar -->
-    <?php Functions::includeView('/partials/navbar.php'); ?>
+    <?php includeView('/partials/navbar.php'); ?>
     <!-- Container -->
     <div class="wrapper">
         <!-- Page Content -->
@@ -23,6 +23,6 @@
         </div>
     </div>
     <!-- Include Footer script -->
-    <?php Functions::includeView('/partials/includes-footer.php'); ?>
+    <?php includeView('/partials/includes-footer.php'); ?>
 </body>
 </html>

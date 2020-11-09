@@ -12,18 +12,17 @@ Class Middleware {
 
             $permission_model = new PermissionRoleModel;
             $user_model = new UserModel;
-            $functions = new Functions;
     
             $permission_table = $permission_model->table;
             $user_table = $user_model->table;
     
-            $role_id = $functions->dbQueryGetOne(
+            $role_id = dbQueryGetOne(
                 'SELECT role_id FROM '.$user_table.' WHERE user_id = ?',
                 's',
                 [$_SESSION['logged_user']]
             );
     
-            $count_permission = $functions->dbQueryGetOne(
+            $count_permission = dbQueryGetOne(
                 'SELECT count(*) FROM '.$permission_table.' WHERE role_id = ? AND slug = ?',
                 'ss',
                 [$role_id,$slug]

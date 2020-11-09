@@ -2,14 +2,14 @@
 
 //Login user get
 Route::add('/login/user', function () {
-    return Functions::callController(
+    return callController(
         'LoginController',
         'indexUser'
     );
 }, 'get');
 
 Route::add('/login/user', function () {
-    return Functions::callController(
+    return callController(
         'LoginController',
         'loginUser',
         [
@@ -21,14 +21,14 @@ Route::add('/login/user', function () {
 
 //login host
 Route::add('/login/host', function () {
-    return Functions::callController(
+    return callController(
         'LoginController',
         'indexHost'
     );
 }, 'get');
 
 Route::add('/login/host', function () {
-    return Functions::callController(
+    return callController(
         'LoginController',
         'login',
         [
@@ -40,14 +40,14 @@ Route::add('/login/host', function () {
 
 //sign up user
 Route::add('/sign-up/user', function () {
-    return Functions::callController(
+    return callController(
         'LoginController',
         'signUpUser'
     );
 }, 'get');
 
 Route::add('/sign-up/user', function () {
-    return Functions::callController(
+    return callController(
         'LoginController',
         'registerUser',
         [
@@ -63,14 +63,14 @@ Route::add('/sign-up/user', function () {
 
 //sign up host
 Route::add('/sign-up/host', function () {
-    return Functions::callController(
+    return callController(
         'LoginController',
         'signUpHost'
     );
 }, 'get');
 
 Route::add('/sign-up/host', function () {
-    return Functions::callController(
+    return callController(
         'LoginController',
         'registerHost'
     );
@@ -79,7 +79,7 @@ Route::add('/sign-up/host', function () {
 
 //logout
 Route::add('/logout', function () {
-    return Functions::callController(
+    return callController(
         'LoginController',
         'logout'
     );

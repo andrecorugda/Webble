@@ -1,6 +1,7 @@
 <?php
 
-require_once __DIR__.'/../../core/functions.php';
+require_once __DIR__.'/functions.php';
+require_once __DIR__.'/middleware.php';
 
 Class Route {
 
@@ -88,12 +89,12 @@ Class Route {
 
             // But a matching path exists
             if($path_match_found){
-                Functions::directTo(Functions::transRootConfig('app_config', 'app_405'));
+                directTo(transRootConfig('app_config', 'app_405'));
                 if(self::$methodNotAllowed){
                     call_user_func_array(self::$methodNotAllowed, Array($path,$method));
                 }
             }else{
-                Functions::directTo(Functions::transRootConfig('app_config', 'app_404'));
+                directTo(transRootConfig('app_config', 'app_404'));
                 if(self::$pathNotFound){
                     call_user_func_array(self::$pathNotFound, Array($path));
                 }

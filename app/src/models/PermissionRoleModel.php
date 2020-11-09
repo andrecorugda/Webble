@@ -1,6 +1,6 @@
 <?php
 
-Class PermissionRoleModel {
+Class PermissionRoleModel extends Models {
 
     public function __construct()
     {
