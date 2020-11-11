@@ -4,8 +4,55 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "78e4a35cff931bbf40ed39dda9473ea5",
+    "content-hash": "dc8590a56582fefe2dce5fa49c7170dd",
     "packages": [
+        {
+            "name": "clancats/hydrahon",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ClanCats/Hydrahon.git",
+                "reference": "b1e1b2207ff57815a41e6832803cdc1d46e36f19"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ClanCats/Hydrahon/zipball/b1e1b2207ff57815a41e6832803cdc1d46e36f19",
+                "reference": "b1e1b2207ff57815a41e6832803cdc1d46e36f19",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "4.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "ClanCats\\Hydrahon\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Mario Döring",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Fast & standalone PHP MySQL Query Builder library.",
+            "homepage": "https://github.com/ClanCats/Hydrahon",
+            "keywords": [
+                "builder",
+                "database",
+                "mysql",
+                "query",
+                "sqlite"
+            ],
+            "time": "2020-09-30T14:43:29+00:00"
+        },
         {
             "name": "phpmailer/phpmailer",
             "version": "v6.1.8",
@@ -79,7 +126,9 @@
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "clancats/hydrahon": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],

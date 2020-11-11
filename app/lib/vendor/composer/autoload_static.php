@@ -11,12 +11,20 @@ class ComposerStaticInit4e4ec5d2548e86ec262a186095ab72f0
         array (
             'PHPMailer\\PHPMailer\\' => 20,
         ),
+        'C' => 
+        array (
+            'ClanCats\\Hydrahon\\' => 18,
+        ),
     );
 
     public static $prefixDirsPsr4 = array (
         'PHPMailer\\PHPMailer\\' => 
         array (
             0 => __DIR__ . '/..' . '/phpmailer/phpmailer/src',
+        ),
+        'ClanCats\\Hydrahon\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/clancats/hydrahon/src',
         ),
     );
 

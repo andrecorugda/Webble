@@ -29,10 +29,10 @@ Route::add('/dashboard', function () {
 }, 'get');
 
 //Keep this route for testing
-// Route::add('/test', function () {
-//     return callController(
-//         'LoginController',
-//         'test'
-//     );
-// }, 'get');
+Route::add('/test', function () {
+    return callController(
+        'LoginController',
+        'test'
+    );
+}, 'get');
 
