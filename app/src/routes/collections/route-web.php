@@ -31,8 +31,8 @@ Route::add('/dashboard', function () {
 //Keep this route for testing
 Route::add('/test', function () {
     return callController(
-        'LoginController',
-        'test'
+        'TestController',
+        'testConnection'
     );
 }, 'get');
 

@@ -22,8 +22,8 @@ class Database
             'host' => '127.0.0.1',
             'user' => 'root',
             'pass' => '',
-            'db' => 'test',
-            'port' => '80',
+            'db' => 'webble',
+            'port' => '3306',
             'socket' => ''
         ];
     }

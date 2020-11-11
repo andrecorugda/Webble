@@ -6,7 +6,10 @@
  * Built For: Fun, Excitement and Boredome :)
  */
 
-/** Initiate Autoloader **/
+/** Initiate Composer Autoloader **/
+require_once __DIR__.'/app/lib/vendor/autoload.php';
+
+/** Initiate Webble Autoloader **/
 require_once __DIR__.'/app/core/autoloader.php';
 
 /** Initiate Route **/
