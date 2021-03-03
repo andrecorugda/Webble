@@ -5,7 +5,7 @@
     <?php require __DIR__.'./partials/includes-header.php'; ?>
     <!-- Set Page Title -->
     <title>
-        <?php Functions::displayConfig('app_config', 'app_title'); ?> 404
+        <?php displayConfig('app_config', 'app_title'); ?> 404
     </title>
 </head>
 <body class="w-100 h-100 bg-primary">
@@ -19,7 +19,7 @@
             <p>If you think something is wrong you should contact our support.</p>
             <p class="lead">
                 <a class="btn btn-primary btn-lg" 
-                    href="<?php Functions::displayRootConfig('app_config', 'app_login_user'); ?>" 
+                    href="<?php displayRootConfig('app_config', 'app_login_user'); ?>" 
                     role="button">
                     Go back
                 </a>

@@ -22,8 +22,8 @@ class Database
             'host' => '127.0.0.1',
             'user' => 'root',
             'pass' => '',
-            'db' => 'hotel_app',
-            'port' => '3305',
+            'db' => 'webble',
+            'port' => '3306',
             'socket' => ''
         ];
     }
@@ -35,11 +35,11 @@ class Database
     public function prod()
     {
         return [
-            'host' => 'PPD-Medimix-Prod-NLB-AURORA-W-a52308dad9c28179.elb.us-east-1.amazonaws.com',
-            'user' => 'acorugda',
-            'pass' => 'TMiT76:t~oi!PIj',
-            'db' => 'dev_fieldwork',
-            'port' => '3306',
+            'host' => '',
+            'user' => '',
+            'pass' => '',
+            'db' => '',
+            'port' => '',
             'socket' => ''
         ];
     }
@@ -51,11 +51,11 @@ class Database
     public function local()
     {
         return [
-            'host' => 'PPD-Medimix-AWS-Dev-NLB-AURORA-ec244bd0dbfbde7d.elb.us-east-1.amazonaws.com',
-            'user' => 'acorugda',
-            'pass' => '76m_2zT45Aur~ny',
-            'db' => 'dev_fieldwork',
-            'port' => '3306',
+            'host' => '',
+            'user' => '',
+            'pass' => '',
+            'db' => '',
+            'port' => '',
             'socket' => ''
         ];
     }

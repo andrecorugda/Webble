@@ -3,7 +3,7 @@
 <head>
     <?php require __DIR__.'/../partials/includes-css.php'; ?>
     <title>
-        <?php Functions::displayConfig('app_config','app_title'); ?> 
+        <?php displayConfig('app_config','app_title'); ?> 
         Sample
     </title>
 </head>

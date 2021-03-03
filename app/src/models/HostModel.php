@@ -1,12 +1,10 @@
 <?php
 
-require_once __DIR__.'/../../core/models.php';
-
-class UserModel extends Models
+class HostModel extends Models
 {
     public function __construct()
     {
-        $this->table = 'users';
+        $this->table = 'host';
         $this->guarded = [
             'id' => 'id',
         ];

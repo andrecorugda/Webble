@@ -1,8 +1,5 @@
 <?php
 
-require_once __DIR__.'/../../core/functions.php';
-require_once __DIR__.'/../models/UserModel.php';
-
 class LoginController
 {
     /**
@@ -11,8 +8,7 @@ class LoginController
     public function __construct()
     {
         //Auth Security
-        $functions = new Functions;
-        $functions->loginSecurity();
+        loginSecurity();
     }
 
     /**
@@ -21,7 +17,7 @@ class LoginController
     public function indexUser()
     {
         $error = null;
-        return Functions::callView('login/login-user', ['error'=>$error]);
+        return callView('login/login-user', ['error'=>$error]);
     }
 
     /**
@@ -30,13 +26,12 @@ class LoginController
     public function signUpUser()
     {
         $error = null;
-        return Functions::callView('login/signup-user', ['error'=>$error]);
+        return callView('login/signup-user', ['error'=>$error]);
     }
 
     public function registerUser($requests)
     {
         //Instantiate Models and core functions
-        $functions = new Functions;
         $userModel = new UserModel;
 
         //Define Connections,Columns and Tables
@@ -50,10 +45,10 @@ class LoginController
         $user_password = $userModel->column('password');
 
         //CSRF Security -> validate token
-        $functions->validateToken();
+        validateToken();
 
         //Query Execution insertion of data
-        $insert_user_data = $functions->dbQueryExec(
+        $insert_user_data = dbQueryExec(
             'INSERT INTO '.$user_table.' 
             (
                 '.$user_fname.', 
@@ -81,14 +76,14 @@ class LoginController
                 <strong>Registration completed!</strong>
                 Sign in now and explore.
             </div>';
-           return Functions::callView('login/login-user', ['error'=>$error]);
+           return callView('login/login-user', ['error'=>$error]);
         }else{
             $error ='<div class="alert alert-dismissible alert-danger">
                 <button type="button" class="close" data-dismiss="alert">&times;</button>
                 <strong>Registration failed!</strong>
                 There is something wrong, please try again!.
             </div>';
-            return Functions::callView('login/signup-user', ['error'=>$error]);
+            return callView('login/signup-user', ['error'=>$error]);
         }
         
     }
@@ -99,7 +94,7 @@ class LoginController
     public function indexHost()
     {
         $error = null;
-        return Functions::callView('login/login-host', ['error'=>$error]);
+        return callView('login/login-host', ['error'=>$error]);
     }
 
     /**
@@ -108,7 +103,7 @@ class LoginController
     public function signUpHost()
     {
         $error = null;
-        return Functions::callView('login/signup-host', ['error'=>$error]);
+        return callView('login/signup-host', ['error'=>$error]);
     }
 
     /**
@@ -117,7 +112,6 @@ class LoginController
     public function loginUser($requests)
     {
         //Instantiate Models and core functions
-        $functions = new Functions;
         $userModel = new UserModel;
 
         //Define Connections,Columns and Tables
@@ -126,10 +120,10 @@ class LoginController
         $user_password = $userModel->column('password');
 
         //CSRF Security -> validate token
-        $functions->validateToken();
+        validateToken();
 
         //Query Execution and Retrieval of data
-        $user_data = $functions->dbQueryGet(
+        $user_data = dbQueryGet(
             'SELECT * FROM '.$user_table.' WHERE '.$user_username.' = ? AND '.$user_password.' = ?',
             'ss',
             [$requests['username'],$requests['password']]
@@ -146,8 +140,8 @@ class LoginController
         //Execute validation of data
         if ($user_count > 0) {
             $_SESSION['logged_user'] = $user_id;
-            Functions::directTo(
-                Functions::transRootConfig('app_config', 'app_index')
+            directTo(
+                transRootConfig('app_config', 'app_index')
             );
         } else {
             $error ='<div class="alert alert-dismissible alert-danger">
@@ -155,7 +149,7 @@ class LoginController
                         <strong>Sign In Failed!</strong>
                         username or password is incorrect.
                     </div>';
-            return Functions::callView('login/login-user', ['error'=>$error]);
+            return callView('login/login-user', ['error'=>$error]);
         }
     }
 
@@ -166,7 +160,7 @@ class LoginController
     {
         unset($_SESSION['logged_user']);
         session_destroy();
-        Functions::directTo(Functions::transRootConfig('app_config', 'app_login_index'));
+        directTo(transRootConfig('app_config', 'app_login_index'));
     }
 
     public function test(){
@@ -174,7 +168,7 @@ class LoginController
         $mailto_name = 'Jessa Grace Casabuena';
         $subject = 'Test Email';
         $body = '<b>Yehey it is Woking!!!! <a href="https://www.facebook.com">Click Here</a></b>';
-        Functions::sendEmail(
+        sendEmail(
             $mailto,
             $mailto_name,
             $subject,
